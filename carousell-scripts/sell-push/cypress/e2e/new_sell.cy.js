@@ -19,8 +19,10 @@ describe("login carousell", () => {
 
     // cy.wait(3000);
 
-    // cy.visit(`${TEST_STUB}/sell/`);
+    cy.visit(`${TEST_STUB}/sell/`);
+    cy.wait(100);
 
-    // cy.get("input[type=file]").selectFile("./test_photo.png");
+    cy.get("input[type=file]").selectFile("cypress\\e2e\\test_photo.png");
+    cy.xpath('(//div[@class="D_xF"])[1]').click();
   });
 });
