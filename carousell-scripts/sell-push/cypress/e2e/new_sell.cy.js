@@ -1,9 +1,9 @@
-let TEST_STUB = "https://www.carousell.com.hk";
-// let TEST_STUB = "http://localhost:3000";
+// let TEST_STUB = "https://www.carousell.com.hk";
+let TEST_STUB = "http://localhost:3000";
 
 describe("login carousell", () => {
   it("Visits https://www.carousell.com.hk", () => {
-    cy.viewport("macbook-16");
+    cy.viewport("macbook-13");
     cy.visit(`${TEST_STUB}`);
 
     cy.get('[href="/login"]').click();
@@ -11,12 +11,16 @@ describe("login carousell", () => {
     cy.xpath('(.//input[@name="username"])[1]').type(Cypress.env("EMAIL"));
     cy.xpath('(.//input[@name="password"])[1]').type(Cypress.env("PASSWORD"));
 
-    cy.xpath('//*[@id="ReactModalPortal-LOGIN"]/div/div/div/div/form/button').click();
+    // cy.xpath('//*[@id="ReactModalPortal-LOGIN"]/div/div/div/div/form/button').click();
+    // cy.xpath('//div[@class="helloworld"]').each(($el, index, $list) => {
+    //   cy.debug({ index, text: $el.text() });
+    // });
+    cy.xpath('(//div[@class="helloworld"])[3]').xpath("(.//button)[1]").click();
 
-    cy.wait(3000);
+    // cy.wait(3000);
 
-    cy.visit(`${TEST_STUB}/sell/`);
+    // cy.visit(`${TEST_STUB}/sell/`);
 
-    cy.get("input[type=file]").selectFile("./test_photo.png");
+    // cy.get("input[type=file]").selectFile("./test_photo.png");
   });
 });
