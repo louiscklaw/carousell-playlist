@@ -15,7 +15,8 @@ describe("login carousell", () => {
     // cy.xpath('//*[@id="ReactModalPortal-LOGIN"]/div/div/div/div/form/button').click();
     cy.xpath('//*[@id="ReactModalPortal-LOGIN"][1]').xpath("(.//button)[3]").click();
 
-    cy.wait(1000);
+    cy.debug("wait for capcha");
+    cy.wait(1000 * 60);
 
     cy.visit(`${TEST_STUB}/sell/`);
 
@@ -33,20 +34,25 @@ describe("login carousell", () => {
     cy.get(":nth-child(4) > .D_rR > .D_rS").type("0.5");
     cy.get(".D_mI").type("3d printout content");
 
-    // // click meet up
-    // cy.get(":nth-child(3) > .D_ur").click();
-    // // click add location
-    // cy.get(".D_ays > .D_rR > .D_rS").click();
+    // click meet up
+    cy.get("p").contains("Meet-up").click();
+    cy.wait(1000);
+    // click add location
+    cy.get("span").contains("Add location").click({ force: true });
 
-    // // 觀塘鐵路站
-    // cy.get(".D_ays > .D_rR > .D_rS").type("觀塘鐵路站");
-    // // click the first one
-    // cy.get(".D_ayt > :nth-child(2)").click();
-
-    // // click mail delivery
-    // cy.get(":nth-child(4) > .D_ur > .D_uy > .D_lg").click();
+    // 觀塘港鐵站巴士總站
+    // cy.get(".D_ays > .D_rR > .D_rS").type("觀塘港鐵站巴士總站");
+    cy.xpath('.//input[@aria-label="Add location"]').type("觀塘港鐵站巴士總站");
+    cy.wait(1000);
+    // click the first one
+    cy.get("p").contains("Kwun Tong MTR Station Bus Terminus 觀塘港鐵站巴士總站").click({ force: true });
+    cy.get("p").contains("Kwun Tong MTR Station Bus Terminus 觀塘港鐵站巴士總站").click({ force: true });
+    cy.get("p").contains("Kwun Tong MTR Station Bus Terminus 觀塘港鐵站巴士總站").click({ force: true });
+    // click mail delivery
+    cy.get("p").contains("Mailing & Delivery").click();
+    cy.get("textarea").contains("Are there additional mailing or delivery fees and options?").type("可代寄 香港郵政 / 順風");
 
     // // click list now
-    // cy.get("form > .D_apu > .D_ot").click();
+    cy.get("button").contains("List now").click();
   });
 });
