@@ -1,0 +1,23 @@
+{
+  "name": "cypress-helloworld-tryout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "dev": "cypress open",
+    "init_dev": "yarn --dev && yarn dev",
+    "init_test": "yarn --dev && yarn test",
+    "gitUpdate": "git add . && git commit -m\"update cypress-helloworld-tryout,\" && git pull && git push",
+    "trim": "rm -rf node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "latest"
+  },
+  "devDependencies": {
+    "cypress-xpath": "^2.0.1"
+  }
+}
