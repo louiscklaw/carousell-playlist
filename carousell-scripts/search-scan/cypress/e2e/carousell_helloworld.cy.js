@@ -20,6 +20,6 @@ describe('3D 代客打印 - my post should appears in the first 8 cards', () => 
         });
       });
 
-    // cy.screenshot();
+    cy.screenshot();
   });
 });
