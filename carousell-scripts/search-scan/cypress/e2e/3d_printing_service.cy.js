@@ -3,8 +3,8 @@
 let keywords = [
   '3D代客打印',
   // '3D打印',
-  // '3D檔案打印',
-  // '3D代印',
+  '3D檔案打印',
+  '3D代印',
   // '3D打印機',
   // 'FDM代印',
   // '3D print',
@@ -27,7 +27,25 @@ let keywords = [
   // '3D TPU',
 ];
 
-describe('search by main keywords - my name should appears in the first 8 cards', () => {
+describe('user search by 3d printing keywords - my name should appears in the first 8 cards', () => {
+  before(() => {
+    // runs once before all tests in the block
+  });
+
+  beforeEach(() => {
+    // runs before each test in the block
+    cy.clearCookies();
+    cy.clearLocalStorage();
+  });
+
+  afterEach(() => {
+    // runs after each test in the block
+  });
+
+  after(() => {
+    // runs once after all tests in the block
+  });
+
   keywords.forEach(keyword => {
     it(`testing search by ${keyword}`, () => {
       cy.visit('https://www.carousell.com.hk');
@@ -35,7 +53,7 @@ describe('search by main keywords - my name should appears in the first 8 cards'
       cy.xpath('(.//input[@placeholder="Search for an item"])[1]').type(keyword);
 
       cy.xpath('(.//button[@data-testid="navbar-search-input-location-desktop-btn-search"])[1]').click();
-      cy.wait(5000);
+      cy.wait(1000 * 5);
 
       let found_position = 99;
       cy.xpath(`(.//*[@data-testid="listing-card-text-seller-name"])`).each(($ele, index) => {
