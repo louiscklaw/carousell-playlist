@@ -6,6 +6,7 @@
   "scripts": {
     "test": "cypress run",
     "dev": "cypress open",
+    "publish": "node ./publish.js",
     "init_dev": "yarn --dev && yarn dev",
     "init_test": "yarn --dev && yarn test",
     "gitUpdate": "git add . && git commit -m\"update cypress-helloworld-tryout,\" && git pull && git push",
@@ -19,6 +20,9 @@
     "cypress": "latest",
     "cypress-mochawesome-reporter": "^3.2.2",
     "cypress-xpath": "^2.0.1",
-    "prettier": "^2.7.1"
+    "gh-pages": "^4.0.0"
+  },
+  "devDependencies": {
+    "prettier": "latest"
   }
 }
