@@ -1,4 +1,6 @@
-describe('carousell search helloworld', () => {
+// 3D%20代客打印
+
+describe('3D 代客打印 - my name should appears in the first 8 cards', () => {
   it('Visits https://www.carousell.com.hk', () => {
     cy.viewport('macbook-16');
 
