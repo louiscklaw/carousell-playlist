@@ -14,7 +14,7 @@ jobs:
         run: |
           cd carousell-scripts/search-scan
             npm i
-            npm run test
+            npm test
             npm run publish
           cd ..
 
