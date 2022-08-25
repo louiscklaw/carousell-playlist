@@ -9,15 +9,16 @@
     "init_dev": "yarn --dev && yarn dev",
     "init_test": "yarn --dev && yarn test",
     "gitUpdate": "git add . && git commit -m\"update cypress-helloworld-tryout,\" && git pull && git push",
-    "trim": "rm -rf node_modules"
+    "trim": "rm -rf node_modules",
+    "prettier_format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "latest"
-  },
-  "devDependencies": {
-    "cypress-xpath": "^2.0.1"
+    "cypress": "latest",
+    "cypress-mochawesome-reporter": "^3.2.2",
+    "cypress-xpath": "^2.0.1",
+    "prettier": "^2.7.1"
   }
 }
