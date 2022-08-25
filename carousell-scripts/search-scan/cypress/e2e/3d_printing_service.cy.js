@@ -30,7 +30,6 @@ let keywords = [
 describe('search by main keywords - my name should appears in the first 8 cards', () => {
   keywords.forEach(keyword => {
     it(`testing search by ${keyword}`, () => {
-      cy.debug(keyword);
       cy.visit('https://www.carousell.com.hk');
 
       cy.xpath('(.//input[@placeholder="Search for an item"])[1]').type(keyword);
@@ -38,9 +37,21 @@ describe('search by main keywords - my name should appears in the first 8 cards'
       cy.xpath('(.//button[@data-testid="navbar-search-input-location-desktop-btn-search"])[1]').click();
       cy.wait(5000);
 
-      cy.xpath(`(.//*[@data-testid="listing-card-text-seller-name"])`).contains('louiscklaw');
+      let found_position = 99;
+      cy.xpath(`(.//*[@data-testid="listing-card-text-seller-name"])`).each(($ele, index) => {
+        if ($ele.text().search(/louiscklaw/) > -1) {
+          found_position = index;
+          expect(index).to.be.lessThan(8, `keyword search failed for ${keyword}, found position ${found_position}`);
+        }
+      });
 
-      cy.screenshot();
+      cy.window().then(win => {
+        win.document.querySelector('#root > div > div.D_alW.D_ama').style.display = 'none';
+      });
+
+      cy.xpath('.//main').screenshot(`3d_printing_service/${keyword}`);
+
+      cy.debug({ keyword, found_position });
     });
   });
 });

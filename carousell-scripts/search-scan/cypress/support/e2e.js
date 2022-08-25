@@ -19,8 +19,6 @@ import './commands';
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-import 'cypress-mochawesome-reporter/register';
-
 // https://github.com/cypress-io/cypress-xpath
 // require('cypress-xpath')
 import 'cypress-xpath';
