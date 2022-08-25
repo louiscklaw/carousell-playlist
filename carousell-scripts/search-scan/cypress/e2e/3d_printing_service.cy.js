@@ -36,6 +36,8 @@ describe('user search by 3d printing keywords - my name should appears in the fi
 
   afterEach(() => {
     // runs after each test in the block
+    cy.clearCookies();
+    cy.clearLocalStorage();
   });
 
   after(() => {
@@ -49,7 +51,7 @@ describe('user search by 3d printing keywords - my name should appears in the fi
       cy.xpath('(.//input[@placeholder="Search for an item"])[1]').type(keyword);
 
       cy.xpath('(.//button[@data-testid="navbar-search-input-location-desktop-btn-search"])[1]').click();
-      cy.wait(1000 * 5);
+      cy.wait(1000 * 15);
 
       let found_position = 99;
       cy.xpath(`(.//*[@data-testid="listing-card-text-seller-name"])`).each(($ele, index) => {
