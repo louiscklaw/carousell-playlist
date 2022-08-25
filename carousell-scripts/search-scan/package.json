@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run --reporter mochawesome -s **/3d*",
+    "test": "cypress run --headless --browser chrome --reporter mochawesome",
     "dev": "cypress open",
     "publish": "node ./publish.js",
     "init_dev": "yarn --dev && yarn dev",
