@@ -1,0 +1,24 @@
+name: carousell-search-scan
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: helloworld
+        run: |
+          cd carousell-scripts/search-scan
+            npm i
+            npm run test
+            npm run publish
+          cd ..
+
+      - uses: actions/upload-artifact@v2 # upload test results
+        if: failure() # run this step even if previous step failed
+        with:
+          name: failure-troubleshoot
+          path: carousell-scripts/search-scan/cypress/screenshots
+          path: carousell-scripts/search-scan/cypress/videos

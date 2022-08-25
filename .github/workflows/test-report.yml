@@ -1,0 +1,15 @@
+name: 'Test Report'
+
+on:
+  workflow_run:
+    workflows: ['carousell-search-scan']
+    types:
+      - completed
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ping-dead-man-timer
+        run: |
+          wget http://healthcheck.iamon99.com/ping/38228efb-6424-4cc5-a630-d8451cf25a50 -T 10 -t 5 -O /dev/null
