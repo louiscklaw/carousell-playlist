@@ -2,7 +2,8 @@ name: 'report-done'
 
 on:
   workflow_run:
-    workflows: ['carousell-search-scan']
+    workflows:
+      - carousell-search-scan
     types:
       - completed
 
