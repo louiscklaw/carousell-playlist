@@ -18,8 +18,8 @@ jobs:
             npm run publish
           cd ..
 
-      - uses: actions/upload-artifact@v2 # upload test results
-        if: failure() # run this step even if previous step failed
+      - uses: actions/upload-artifact@v3
+        if: failure()
         with:
           name: failure-troubleshoot
           path: |
