@@ -47,11 +47,11 @@ describe('user search by 3d printing keywords - my name should appears in the fi
   keywords.forEach(keyword => {
     it(`testing search by ${keyword}`, () => {
       cy.visit('https://www.carousell.com.hk');
+      cy.wait(1000 * 15);
 
       cy.xpath('(.//input[@placeholder="Search for an item"])[1]').type(keyword);
 
       cy.xpath('(.//button[@data-testid="navbar-search-input-location-desktop-btn-search"])[1]').click();
-      cy.wait(1000 * 15);
 
       let found_position = 99;
       cy.xpath(`(.//*[@data-testid="listing-card-text-seller-name"])`).each(($ele, index) => {
