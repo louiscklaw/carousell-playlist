@@ -1,8 +1,18 @@
-describe('carousell', () => {
-  it('helloworld', () => {
-    cy.visit('index.html');
+context('carousell', () => {
+  beforeEach(() => {
+    cy.viewport(1920, 1080 * 30);
+  });
 
-    cy.log('helloworld');
-    cy.screenshot();
+  it('helloworld ', () => {
+    Array(30)
+      .fill(0)
+      .forEach((x, i) => {
+        cy.visit('https://www.carousell.com.hk');
+        cy.wait(5000);
+
+        cy.log('helloworld');
+
+        cy.screenshot();
+      });
   });
 });
