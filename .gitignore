@@ -1,5 +1,10 @@
+*.del
+mochawesome-report
+
 .env
 cypress.env.json
+
+
 
 cypress/screenshots/*
 cypress/videos/*

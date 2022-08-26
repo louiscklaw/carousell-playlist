@@ -2,26 +2,25 @@ name: carousell-search-scan
 
 on:
   push:
-  schedule:
-    - cron: '0 */2 * * *'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: helloworld
+      - name: test docker
         run: |
           cd carousell-scripts/search-scan
-            npm i
-            npm test
-            npm run publish
-          cd ..
+            cd src
+              npm i -d
+            cd ..
+            bash ./test.sh
+          cd ../..
 
-      - uses: actions/upload-artifact@v3
-        if: failure()
+      - uses: actions/upload-artifact@v2 # upload test results
+        if: failure() || success()
         with:
-          name: failure-troubleshoot
+          name: failure-videos-screenshots
           path: |
-            carousell-scripts/search-scan/cypress/screenshots
-            carousell-scripts/search-scan/cypress/videos
+            carousell-scripts/search-scan/src/cypress/videos
+            carousell-scripts/search-scan/src/cypress/screenshots
