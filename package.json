@@ -1,0 +1,21 @@
+{
+  "name": "carousell-playlist",
+  "version": "1.0.0",
+  "description": "``` src: carousell-scripts\\search-scan ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gitUpdate": "git add . && git commit -m \"update,\" && git pull && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louiscklaw/carousell-playlist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/louiscklaw/carousell-playlist/issues"
+  },
+  "homepage": "https://github.com/louiscklaw/carousell-playlist#readme"
+}
