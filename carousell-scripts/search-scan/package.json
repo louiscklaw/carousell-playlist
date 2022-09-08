@@ -1,28 +1,17 @@
 {
-  "name": "cypress-helloworld-tryout",
+  "name": "src",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "dev": "cypress open",
-    "publish": "node ./publish.js",
-    "init_dev": "yarn --dev && yarn dev",
-    "init_test": "yarn --dev && yarn test",
-    "gitUpdate": "git add . && git commit -m\"update cypress-helloworld-tryout,\" && git pull && git push",
-    "trim": "rm -rf node_modules",
-    "prettier_format": "prettier --write ."
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "latest",
-    "cypress-mochawesome-reporter": "^3.2.2",
-    "cypress-xpath": "^2.0.1",
-    "gh-pages": "^4.0.0"
-  },
-  "devDependencies": {
-    "prettier": "latest"
+    "@cypress/skip-test": "2.3.0",
+    "cypress-failed-log": "2.5.1",
+    "cypress-xpath": "^2.0.1"
   }
 }

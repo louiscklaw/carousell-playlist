@@ -1,0 +1,19 @@
+{
+  "specName": "cypress%2Fe2e%2Fcarousell.cy.js",
+  "title": "try search by 3mf",
+  "suiteName": "test xpath",
+  "testName": "test xpath try search by 3mf",
+  "testError": "Timed out retrying after 4000ms: Expected to find element: `input[placeholder=\"Search for an item\"]`, but never found it.",
+  "testCommands": [
+    "clearLocalStorage ",
+    "clearCookies ",
+    "wait 1000",
+    "visit https://www.carousell.com.hk",
+    "xhr  GET https://api2.branch.io/v1/has-app/key_live_odyHtTXnKNa5u09c0wLEtbioxxgn5DE8?browser_fingerprint_id=1092103975743610717",
+    "xhr  POST https://api2.branch.io/v1/pageview",
+    "viewport 1920, 1080",
+    "get #root",
+    "get input[placeholder=\"Search for an item\"]"
+  ],
+  "screenshot": "try-search-by-3-mf-failed.png"
+}
