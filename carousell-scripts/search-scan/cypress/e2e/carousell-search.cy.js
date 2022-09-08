@@ -8,7 +8,7 @@ describe("3D 代客打印 - my post should appears in the first 8 cards", () => 
   });
 
   it("Visits https://www.carousell.com.hk", () => {
-    cy.viewport("macbook-16");
+    cy.viewport(1920, 1080 * 10);
 
     cy.visit("https://www.carousell.com.hk");
 
