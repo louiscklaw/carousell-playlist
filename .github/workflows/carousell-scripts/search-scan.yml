@@ -11,13 +11,12 @@ jobs:
       - name: helloworld
         run: |
           cd carousell-scripts/search-scan
-            npm i
-            npm run test
-            npm run publish
+            npm i -d
+            ./cy-run.sh --headed --browser chrome --no-exit
           cd ..
 
       - uses: actions/upload-artifact@v2 # upload test results
-        if: failure() # run this step even if previous step failed
+        if: failure() || success()
         with:
           name: failure-troubleshoot
           path: |
