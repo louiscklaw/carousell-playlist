@@ -12,7 +12,7 @@ jobs:
         run: |
           cd carousell-scripts/search-scan
             npm i -d
-            ./cy-run.sh --headed --browser chrome --no-exit
+            ./cy-run.sh --headed --browser chrome
           cd ..
 
       - uses: actions/upload-artifact@v2 # upload test results
