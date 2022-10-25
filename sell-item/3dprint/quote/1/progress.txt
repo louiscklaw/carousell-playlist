@@ -1,0 +1,13 @@
+plate1.3mf
+1D06 table_edited.stl  
+1D08 Chair edited.stl   
+1d09 Table edited.stl   
+1d10 table edited.stl   
+
+plate2.3mf
+1D09 Cupboard.stl
+1D10 Cupboard.stl
+1d11 cupboard.stl    
+
+1d11 bad.stl.stl
+1d12 bad.stl.stl
