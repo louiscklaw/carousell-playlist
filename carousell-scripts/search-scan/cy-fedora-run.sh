@@ -30,3 +30,4 @@ docker run -it \
   -e DISPLAY \
   --entrypoint cypress \
   cypress/included:10.6.0 run --browser chrome --headed
+  
