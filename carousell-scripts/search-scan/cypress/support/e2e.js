@@ -1,2 +1,2 @@
-require('cypress-failed-log')
-require('cypress-xpath')
+require("cypress-failed-log");
+require("cypress-xpath");

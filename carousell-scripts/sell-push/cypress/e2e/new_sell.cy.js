@@ -13,7 +13,9 @@ describe("login carousell", () => {
 
     // click login button
     // cy.xpath('//*[@id="ReactModalPortal-LOGIN"]/div/div/div/div/form/button').click();
-    cy.xpath('//*[@id="ReactModalPortal-LOGIN"][1]').xpath("(.//button)[3]").click();
+    cy.xpath('//*[@id="ReactModalPortal-LOGIN"][1]')
+      .xpath("(.//button)[3]")
+      .click();
 
     cy.debug("wait for capcha");
     cy.wait(1000 * 60);
@@ -21,13 +23,17 @@ describe("login carousell", () => {
     cy.visit(`${TEST_STUB}/sell/`);
 
     // add new sell item
-    cy.xpath("(.//input)[1]").selectFile("cypress\\e2e\\test_photo.png", { force: true });
+    cy.xpath("(.//input)[1]").selectFile("cypress\\e2e\\test_photo.png", {
+      force: true,
+    });
     cy.wait(1000);
     // cy.get(".D_xP").click();
 
     cy.get("p").contains("Select a category").click();
     // cy.get(".D_rS").type("Printers, Scanners & Copiers");
-    cy.xpath('(.//input[@placeholder="Search for a category..."])[1]').type("Printers, Scanners & Copiers");
+    cy.xpath('(.//input[@placeholder="Search for a category..."])[1]').type(
+      "Printers, Scanners & Copiers"
+    );
 
     cy.wait(1000);
     cy.get(".D_yb").click();
@@ -57,13 +63,21 @@ describe("login carousell", () => {
     cy.xpath('.//input[@aria-label="Add location"]').type("觀塘港鐵站巴士總站");
     cy.wait(5000);
     // click the first one
-    cy.get("p").contains("Kwun Tong MTR Station Bus Terminus 觀塘港鐵站巴士總站").click({ force: true });
-    cy.get("p").contains("Kwun Tong MTR Station Bus Terminus 觀塘港鐵站巴士總站").click({ force: true });
-    cy.get("p").contains("Kwun Tong MTR Station Bus Terminus 觀塘港鐵站巴士總站").click({ force: true });
+    cy.get("p")
+      .contains("Kwun Tong MTR Station Bus Terminus 觀塘港鐵站巴士總站")
+      .click({ force: true });
+    cy.get("p")
+      .contains("Kwun Tong MTR Station Bus Terminus 觀塘港鐵站巴士總站")
+      .click({ force: true });
+    cy.get("p")
+      .contains("Kwun Tong MTR Station Bus Terminus 觀塘港鐵站巴士總站")
+      .click({ force: true });
     // click mail delivery
     cy.get("p").contains("Mailing & Delivery").click();
     // cy.get("textarea").contains("Are there additional mailing or delivery fees and options?").type("可代寄 香港郵政 / 順風");
-    cy.xpath('(.//textarea[@placeholder="Are there additional mailing or delivery fees and options?"])[1]').type("可代寄 香港郵政 / 順風");
+    cy.xpath(
+      '(.//textarea[@placeholder="Are there additional mailing or delivery fees and options?"])[1]'
+    ).type("可代寄 香港郵政 / 順風");
 
     // // click list now
     cy.get("button").contains("List now").click();

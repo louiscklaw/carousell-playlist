@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/louiscklaw/carousell-playlist/issues"
   },
-  "homepage": "https://github.com/louiscklaw/carousell-playlist#readme"
+  "homepage": "https://github.com/louiscklaw/carousell-playlist#readme",
+  "dependencies": {
+    "prettier": "^2.8.1"
+  }
 }
