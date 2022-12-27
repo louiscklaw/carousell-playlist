@@ -22,7 +22,7 @@ describe("javascript - my post should appears in the first 8 cards", () => {
   });
 
   it("Visits https://www.carousell.com.hk", () => {
-    cy.viewport(1920, 1080 * 1);
+    cy.viewport(1920, 1080 * 5);
 
     // 3D 代客打印
     cy.visit("https://www.carousell.com.hk/search/javascript");
