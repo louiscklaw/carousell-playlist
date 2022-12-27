@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: search-scan
+      - name: carousell-scan
         run: |
           cd carousell-scripts/search-scan
             npm i -d
