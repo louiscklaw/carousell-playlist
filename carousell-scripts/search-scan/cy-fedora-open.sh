@@ -6,7 +6,7 @@
 # IP=$(ipconfig getifaddr en0)
 # this assumes that X11 server allows connections over the network
 # after we execute "/usr/X11/bin/xhost + $IP"
-DISPLAY=:0
+DISPLAY=:1
 
 xhost local:
 

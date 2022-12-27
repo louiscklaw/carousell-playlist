@@ -27,9 +27,7 @@ describe("3D 代客打印 - my post should appears in the first 8 cards", () => 
       "3D 代客打印"
     );
 
-    cy.xpath(
-      '(.//button[@data-testid="navbar-search-input-location-desktop-btn-search"])[1]'
-    ).click();
+    cy.xpath('(.//button[@role="submitButton"])[1]').click();
     cy.wait(10 * 1000);
 
     Array(8)
