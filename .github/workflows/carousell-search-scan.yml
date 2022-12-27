@@ -3,7 +3,6 @@ name: carousell-search-scan
 on:
   push:
   schedule:
-    
     - cron:  '15 * * * *'
 
 jobs:
@@ -16,6 +15,8 @@ jobs:
           cd carousell-scripts/search-scan
             npm i -d
             ./cy-run.sh --headed --browser chrome
+
+            node ./publish.js
           cd ..
 
       - uses: actions/upload-artifact@v2 # upload test results
