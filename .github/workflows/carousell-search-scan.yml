@@ -18,6 +18,16 @@ jobs:
             ./github-run.sh
           cd ..
 
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        # If you're changing the branch from main,
+        # also change the `main` in `refs/heads/main`
+        # below accordingly.
+        # if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: carousell-scripts/search-scan/cypress/reports/html
+          
       - uses: actions/upload-artifact@v2 # upload test results
         if: failure()
         with:
