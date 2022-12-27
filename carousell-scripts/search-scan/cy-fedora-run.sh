@@ -22,12 +22,13 @@ xhost local:
 #     in our case they are "--project ." to point globally installed Cypress
 #     at the current working directory /e2e inside the container
 
+  # -u 1000:1000 \
 docker run -it \
-  -u 1000:1000 \
   -v $PWD:/e2e \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -w /e2e \
   -e DISPLAY \
   --entrypoint cypress \
   cypress/included:10.6.0 run --browser chrome
-  
+
+sudo chmod 777 -R cypress/reports

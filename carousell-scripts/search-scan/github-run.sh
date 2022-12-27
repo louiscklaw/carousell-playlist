@@ -2,6 +2,6 @@
 
 ./cy-run.sh --headed --browser chrome
 
-chmod 777 -r cypress/reports/html
+chmod 777 -R cypress/reports
 
 node ./publish.js
