@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "cypress:open": "cypress open",
-    "test": "cypress run"
+    "test": "cypress run",
+    "gitUpdate": "git add . && git commit -m \"update search-scan,\" && git pull && git push"
   },
   "license": "MIT",
   "devDependencies": {
