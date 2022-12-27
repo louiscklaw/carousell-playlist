@@ -15,9 +15,7 @@ jobs:
         run: |
           cd carousell-scripts/search-scan
             npm i -d
-            ./cy-run.sh --headed --browser chrome
-
-            node ./publish.js
+            ./github-run.sh
           cd ..
 
       - uses: actions/upload-artifact@v2 # upload test results
