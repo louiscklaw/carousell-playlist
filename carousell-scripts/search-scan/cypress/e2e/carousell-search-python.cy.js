@@ -13,6 +13,8 @@ describe("python - my post should appears in the first 8 cards", () => {
     cy.clearLocalStorage();
     cy.clearCookies();
     cy.wait(1000);
+
+    cy.intercept("https://sentry.io/*", {});
   });
 
   afterEach(() => {
@@ -22,11 +24,16 @@ describe("python - my post should appears in the first 8 cards", () => {
   it("Visits https://www.carousell.com.hk", () => {
     cy.viewport(1920, 1080 * 1);
 
-    cy.visit("https://www.carousell.com.hk");
-    cy.xpath('(.//input[starts-with(@placeholder,"Search")])[1]').type("python");
-
-    cy.xpath('(.//button[@role="submitButton"])[1]').click();
+    // 3D 代客打印
+    cy.visit("https://www.carousell.com.hk/search/python");
     cy.wait(10 * 1000);
+
+    // cy.xpath('(.//input[starts-with(@placeholder,"Search")])[1]').type(
+    //   "3D 代客打印"
+    // );
+
+    // cy.xpath('(.//button[@role="submitButton"])[1]').click();
+    // cy.wait(10 * 1000);
 
     Array(8)
       .fill(0)

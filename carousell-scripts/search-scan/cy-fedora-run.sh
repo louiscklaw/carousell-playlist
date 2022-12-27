@@ -6,7 +6,7 @@
 # IP=$(ipconfig getifaddr en0)
 # this assumes that X11 server allows connections over the network
 # after we execute "/usr/X11/bin/xhost + $IP"
-DISPLAY=:0
+DISPLAY=:1
 
 xhost local:
 
@@ -29,5 +29,5 @@ docker run -it \
   -w /e2e \
   -e DISPLAY \
   --entrypoint cypress \
-  cypress/included:10.6.0 run --browser chrome --headed
+  cypress/included:10.6.0 run --browser chrome
   
