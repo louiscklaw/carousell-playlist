@@ -1,0 +1,14 @@
+{
+  "specName": "cypress%2Fe2e%2Fembeed-screenshot%2Fsub-dir%2Ftest1.cy.js",
+  "title": "fail test #tag1",
+  "suiteName": "",
+  "testName": "fail test #tag1",
+  "testError": "Timed out retrying after 4000ms: Not enough elements found. Found '4', expected '10'.",
+  "testCommands": [
+    "visit site/index.html",
+    "screenshot custom-name",
+    "get #todo-list li",
+    "assert expected **[ <li>, 3 more... ]** to have a length of **10** but got **4**"
+  ],
+  "screenshot": "fail-test-tag-1-failed.png"
+}

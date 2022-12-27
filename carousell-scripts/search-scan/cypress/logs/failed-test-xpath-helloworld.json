@@ -1,0 +1,11 @@
+{
+  "specName": "cypress%2Fe2e%2Fspec.cy.js",
+  "title": "helloworld",
+  "suiteName": "test xpath",
+  "testName": "test xpath helloworld",
+  "testError": "`cy.visit()` failed trying to load:\n\nstub/index.html\n\nWe failed looking for this file at the path:\n\n/e2e/stub/index.html\n\nThe internal Cypress web server responded with:\n\n  > 404: Not Found",
+  "testCommands": [
+    "visit stub/index.html"
+  ],
+  "screenshot": "helloworld-failed.png"
+}
