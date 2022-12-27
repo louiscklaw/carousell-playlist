@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",
     "gitSync": "git fetch --all && git stash && git pull --all && git stash pop || true",
-    "gitUpdate": "git add . && git commit -m \"update carousell-playlist,\" && yarn gitSync && git push"
+    "gitUpdate": "git add . && git commit -m \"update carousell-playlist,\" && git pull && git push"
   },
   "repository": {
     "type": "git",
