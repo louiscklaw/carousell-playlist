@@ -22,7 +22,7 @@ Cypress._.times(KEYWORD_LIST.length, () => {
       return Math.floor(Math.random() * max);
     }
 
-    Cypress._.times(getRandomInt(20), () => {
+    Cypress._.times(getRandomInt(10), () => {
       var active_user = USER_LIST[i].trim();
       var active_keyword = KEYWORD_LIST[j].trim();
 
