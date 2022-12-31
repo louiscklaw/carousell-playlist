@@ -20,7 +20,7 @@ describe("test xpath", { retries: { runMode: 3, openMode: 1 } }, () => {
 
   // afterEach(() => {});
 
-  it(`try search by carousell`, () => {
+  it(`https://share.iamon99.com/upload self check`, () => {
     cy.visit("https://share.iamon99.com/upload");
 
     cy.viewport(1920, 1080);
