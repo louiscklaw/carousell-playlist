@@ -2,3 +2,4 @@ node_modules
 cypress/reports
 images
 cypress/videos
+**/logs/*
