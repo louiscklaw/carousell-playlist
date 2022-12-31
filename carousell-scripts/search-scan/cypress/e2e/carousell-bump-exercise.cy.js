@@ -6,9 +6,6 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   // cy.debug(err);
 });
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
 
 var ENV_KEYWORD_LIST = Cypress.env("ENV_KEYWORD_LIST");
 var ENV_USER_LIST = Cypress.env("ENV_USER_LIST");
@@ -21,7 +18,11 @@ var i = 0,
 
 Cypress._.times(KEYWORD_LIST.length, () => {
   Cypress._.times(USER_LIST.length, () => {
-    Cypress._.times(getRandomInt(10), () => {
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    Cypress._.times(getRandomInt(20), () => {
       var active_user = USER_LIST[i].trim();
       var active_keyword = KEYWORD_LIST[j].trim();
 
