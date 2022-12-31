@@ -16,7 +16,6 @@ jobs:
           ENV_KEYWORD_LIST: ${{ secrets.ENV_KEYWORD_LIST }}
           ENV_USER_LIST: ${{ secrets.ENV_USER_LIST }}
         run: |
-          exports
           cd carousell-scripts/search-scan
             npm i -d
             id
