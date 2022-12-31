@@ -19,7 +19,7 @@ jobs:
           cd carousell-scripts/search-scan
             npm i -d
             id
-            docker run -t --env ENV_KEYWORD_LIST="$ENV_KEYWORD_LIST" --env ENV_USER_LIST="$ENV_USER_LIST" -v $PWD:/e2e -w /e2e cypress/included:10.6.0 --headed --browser chrome
+            docker run -t --env-file <(env | grep ENV_) -v $PWD:/e2e -w /e2e cypress/included:10.6.0 --headed --browser chrome
             sudo chmod 777 -R cypress/reports
             node ./publish.js
           cd ..
