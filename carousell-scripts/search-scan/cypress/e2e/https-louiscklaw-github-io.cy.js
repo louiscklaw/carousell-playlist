@@ -6,7 +6,7 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-describe("test xpath", { retries: { runMode: 3, openMode: 1 } }, () => {
+describe("https://louiscklaw.github.io self-check", { retries: { runMode: 3, openMode: 1 } }, () => {
   var test_pass = false;
 
   beforeEach(() => {
