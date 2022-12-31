@@ -8,7 +8,7 @@
     "format": "prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",
     "gitSync": "git fetch --all && git stash && git pull --all && git stash pop || true",
     "gitUpdate": "git add . && git commit -m \"update carousell-playlist,\" && git pull && git push",
-    "gitGoRepo": "firefox https://github.com/louiscklaw/carousell-playlist"
+    "goGithubRepo": "firefox https://github.com/louiscklaw/carousell-playlist"
   },
   "repository": {
     "type": "git",
