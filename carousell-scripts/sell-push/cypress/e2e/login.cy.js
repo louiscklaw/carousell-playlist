@@ -8,7 +8,9 @@ describe("login carousell", () => {
     cy.xpath('(.//input[@name="username"])[1]').type(Cypress.env("EMAIL"));
     cy.xpath('(.//input[@name="password"])[1]').type(Cypress.env("PASSWORD"));
 
-    cy.xpath('//*[@id="ReactModalPortal-LOGIN"]/div/div/div/div/form/button').click();
+    cy.xpath(
+      '//*[@id="ReactModalPortal-LOGIN"]/div/div/div/div/form/button'
+    ).click();
 
     cy.screenshot();
   });

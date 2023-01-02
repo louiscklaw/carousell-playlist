@@ -1,0 +1,3 @@
+node_modules
+*del
+**/search-scan/cypress/reports/

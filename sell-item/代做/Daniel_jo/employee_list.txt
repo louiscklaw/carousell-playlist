@@ -1,0 +1,13 @@
+# A list containing all the employee details in this system
+# Comments and empty lines are ignored
+# Details are in the following pattern
+# Employee ID, Employee Name, Salary, Department
+
+IVE00001, Kelvin Yip, 43210.5, IT
+IVE00002, Cow Leung, 32105.4, Admin
+IVE00003, Leung Pig Hung, 21054.3, HR
+IVE00004, Michael Fung, 10543.2, Finance
+IVE00005, Joe Yeung, 6543.2, IT
+IVE00006, Martin Kung, 5432.1, Admin
+
+
