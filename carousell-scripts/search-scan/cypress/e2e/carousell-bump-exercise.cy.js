@@ -18,7 +18,7 @@ describe(`carousell-bump-exercise.cy.js`, () => {
       return false;
     });
 
-    var time_to_click = getRandomInt(25);
+    var time_to_click = getRandomInt(5);
 
     var USER_LIST = ENV_USER_LIST.split('++++');
     var KEYWORD_LIST = ENV_KEYWORD_LIST.split('++++');
