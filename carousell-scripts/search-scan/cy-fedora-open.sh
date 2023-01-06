@@ -10,6 +10,9 @@ DISPLAY=:1
 
 xhost local:
 
+export CYPRESS_USER_LIST=louiscklaw++++louiscklaw
+export CYPRESS_ENV_KEYWORD_LIST=jeton++++jeton
+
 # explanation of the "docker run" command line arguments
 #
 #  -it          = interactive terminal
@@ -27,5 +30,8 @@ docker run -it \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -w /e2e \
   -e DISPLAY \
+  --env-file <(env | grep ENV_) \
   --entrypoint cypress \
-  cypress/included:10.6.0 open --project .
+  cypress/included:10.6.0 open  \
+  --env ENV_USER_LIST="$CYPRESS_USER_LIST",ENV_KEYWORD_LIST="$CYPRESS_ENV_KEYWORD_LIST" \
+  --project .
