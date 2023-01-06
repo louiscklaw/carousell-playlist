@@ -7,8 +7,8 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 });
 
 
-var ENV_KEYWORD_LIST =  "programming";
-var ENV_USER_LIST = "abcdqwr";
+var ENV_KEYWORD_LIST =  "Jeton nano";
+var ENV_USER_LIST = "louiscklaw";
 
 var USER_LIST = ENV_USER_LIST.split(",");
 var KEYWORD_LIST = ENV_KEYWORD_LIST.split(",");
@@ -22,12 +22,13 @@ Cypress._.times(KEYWORD_LIST.length, () => {
       return Math.floor(Math.random() * max);
     }
 
-    Cypress._.times(3, () => {
+    Cypress._.times(2, () => {
       var active_user = USER_LIST[i].trim();
       var active_keyword = KEYWORD_LIST[j].trim();
 
       describe(`checking ${active_keyword}->${active_user}`, () => {
         before(() =>{
+          cy.log(`checking ${active_keyword}->${active_user}`)
           cy.readFile('ad_list.json',{encoding: 'utf-8'}).then(str => {
             str.forEach( s => cy.intercept(`https://*.${s}/*`, {}))
           })
