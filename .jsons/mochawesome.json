@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-01-06T11:45:59.252Z",
+    "end": "2023-01-06T11:48:18.205Z",
+    "duration": 138953,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ac2d0b1f-0a43-4dd0-b225-b67feac1ec73",
+      "title": "",
+      "fullFile": "cypress/e2e/carousell-bump-exercise-happy-tour.cy.js",
+      "file": "cypress/carousell-bump-exercise-happy-tour.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ab8a3164-d7d9-417c-9f5f-c632120fa42e",
+          "title": "checking Jeton nano->louiscklaw",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "carousell-bump-exercise-happy-tour.cy.js",
+              "fullTitle": "checking Jeton nano->louiscklaw carousell-bump-exercise-happy-tour.cy.js",
+              "timedOut": null,
+              "duration": 43006,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`https://www.carousell.com.hk/search/${active_keyword}`); // cy.visit(\"https://www.example.com\");\n// cy.visit(\"http://192.168.10.180:5500/search-scripts/search-scan/site/index.html\");\n// cy.screenshot({ capture: \"viewport\", overwrite: true });\n// cy.debug(cy.xpath(\"(.//*[contains(text(),'cs_tutor') ])\").length);\ncy.get('[data-testid=\"listing-card-text-seller-name\"]').filter(`:contains(\"${active_user}\")`).first().parent().parent().parent().click();\ncy.wait(3 * 1000);",
+              "err": {},
+              "uuid": "625ea0f4-5e8b-4879-9b33-5806f1b68b0d",
+              "parentUUID": "ab8a3164-d7d9-417c-9f5f-c632120fa42e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "625ea0f4-5e8b-4879-9b33-5806f1b68b0d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 43006,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "7f71ef03-6146-4546-972e-102964af270c",
+          "title": "checking Jeton nano->louiscklaw",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "carousell-bump-exercise-happy-tour.cy.js",
+              "fullTitle": "checking Jeton nano->louiscklaw carousell-bump-exercise-happy-tour.cy.js",
+              "timedOut": null,
+              "duration": 72471,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`https://www.carousell.com.hk/search/${active_keyword}`); // cy.visit(\"https://www.example.com\");\n// cy.visit(\"http://192.168.10.180:5500/search-scripts/search-scan/site/index.html\");\n// cy.screenshot({ capture: \"viewport\", overwrite: true });\n// cy.debug(cy.xpath(\"(.//*[contains(text(),'cs_tutor') ])\").length);\ncy.get('[data-testid=\"listing-card-text-seller-name\"]').filter(`:contains(\"${active_user}\")`).first().parent().parent().parent().click();\ncy.wait(3 * 1000);",
+              "err": {},
+              "uuid": "908421ff-351b-4ad6-8b28-a06e38f57d98",
+              "parentUUID": "7f71ef03-6146-4546-972e-102964af270c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "908421ff-351b-4ad6-8b28-a06e38f57d98"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 72471,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
