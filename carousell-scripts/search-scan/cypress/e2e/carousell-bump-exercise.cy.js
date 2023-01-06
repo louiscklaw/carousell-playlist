@@ -22,6 +22,16 @@ describe(`checking ${'active_keyword'}->${'active_user'}`, () => {
       str.forEach( s => cy.intercept(`https://*.${s}/*`, {}))
     })
 
+    cy.intercept("https://*.googlesyndication.com/*", {});
+    cy.intercept("https://*.doubleclick.net/*", {});
+    cy.intercept("https://*.adsrvr.org/*", {});
+    cy.intercept("https://*.mathtag.com/*", {});
+    cy.intercept("https://*.smartadserver.com/*", {});
+    cy.intercept("https://*.stackadapt.com/*", {});
+    cy.intercept("https://*.bidswitch.net/*", {});
+    cy.intercept("https://*.admeme.net/*", {});
+    cy.intercept("https://*.rlcdn.com/*", {});
+
     KEYWORD_LIST.forEach(kw => {
       USER_LIST.forEach(active_user => {
         cy.log({kw, active_user})
