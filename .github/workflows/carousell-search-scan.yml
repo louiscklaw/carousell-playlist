@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: carousell-scan
         continue-on-error: true
+        timeout-minutes: 30
         env: # Or as an environment variable
           ENV_KEYWORD_LIST: ${{ secrets.ENV_KEYWORD_LIST }}
           ENV_USER_LIST: ${{ secrets.ENV_USER_LIST }}
