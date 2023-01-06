@@ -4,7 +4,7 @@
   "scripts": {
     "cypress:open": "cypress open",
     "test": "cypress run",
-    "gitUpdate": "git add . && git commit -m \"update search-scan,\" && git pull && git push",
+    "gitUpdate": "git add . && git commit -m \"update search-scan,\" && git pull && git push"
   },
   "license": "MIT",
   "devDependencies": {
