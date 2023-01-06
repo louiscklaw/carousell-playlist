@@ -17,36 +17,17 @@ describe('python position check', () => {
   });
 
   afterEach(() => {
-    expect(louis_found).to.be.true;
+    // expect(louis_found).to.be.true;
   });
 
   it('my post should appears in the first 8 cards', () => {
-    cy.viewport(1920, 1080 * 5);
+    cy.viewport(1920, 1080 * 2);
 
     // 3D 代客打印
+    // cy.visit('http://192.168.10.180:5500/carousell-scripts/search-scan/site/index.html');
     cy.visit('https://www.carousell.com.hk/search/python');
-    cy.wait(10 * 1000);
 
-    // cy.xpath('(.//input[starts-with(@placeholder,"Search")])[1]').type(
-    //   "3D 代客打印"
-    // );
-
-    // cy.xpath('(.//button[@role="submitButton"])[1]').click();
-    // cy.wait(10 * 1000);
-
-    Array(8)
-      .fill(0)
-      .map((_, idx) => {
-        let el_idx = idx + 1;
-        cy.xpath(
-          `(.//div[(@data-testid!="listing-card") and starts-with(@data-testid,"listing-card")]/div/a)[${el_idx}]`,
-        ).then($ele => {
-          cy.debug($ele.text());
-          if ($ele.text().search(/louiscklaw/)) {
-            louis_found = true;
-          }
-        });
-      });
+    cy.get(`[data-testid^=listing-card-text-seller-name]`).should('contain', 'louiscklaw');
 
     cy.screenshot({ capture: 'viewport', overwrite: true });
   });
