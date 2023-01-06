@@ -7,8 +7,8 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 });
 
 
-var ENV_KEYWORD_LIST = Cypress.env("ENV_KEYWORD_LIST") || "programming";
-var ENV_USER_LIST = Cypress.env("ENV_USER_LIST") || "abcdqwr";
+var ENV_KEYWORD_LIST = Cypress.env("ENV_KEYWORD_LIST");
+var ENV_USER_LIST = Cypress.env("ENV_USER_LIST");
 
 var USER_LIST = ENV_USER_LIST.split(",");
 var KEYWORD_LIST = ENV_KEYWORD_LIST.split(",");
@@ -51,7 +51,7 @@ Cypress._.times(KEYWORD_LIST.length, () => {
           cy.wait(1000);
         });
 
-        it("carousell-bump-burner.cy", () => {
+        it("carousell-bump-exercise.cy.js", () => {
           cy.visit(`https://www.carousell.com.hk/search/${active_keyword}`);
           // cy.visit("https://www.example.com");
           // cy.visit("http://192.168.10.180:5500/search-scripts/search-scan/site/index.html");

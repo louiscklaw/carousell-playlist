@@ -51,7 +51,7 @@ Cypress._.times(KEYWORD_LIST.length, () => {
           cy.wait(1000);
         });
 
-        it("carousell-bump-burner.cy", () => {
+        it("carousell-bump-exercise-happy-tour.cy.js", () => {
           cy.visit(`https://www.carousell.com.hk/search/${active_keyword}`);
           // cy.visit("https://www.example.com");
           // cy.visit("http://192.168.10.180:5500/search-scripts/search-scan/site/index.html");
