@@ -39,10 +39,10 @@ jobs:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     publish_dir: carousell-scripts/search-scan/cypress/reports/html
 
-      # - uses: actions/upload-artifact@v2 # upload test results
-      #   if: failure() || success()
-      #   with:
-      #     name: failure-troubleshoot
-      #     path: |
-      #       carousell-scripts/search-scan/cypress/screenshots
-      #       carousell-scripts/search-scan/cypress/videos
+      - uses: actions/upload-artifact@v2 # upload test results
+        if: failure()
+        with:
+          name: failure-troubleshoot
+          path: |
+            carousell-scripts/search-scan/cypress/screenshots
+            carousell-scripts/search-scan/cypress/videos
