@@ -6,7 +6,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   return false;
 });
 
-describe('python - my post should appears in the first 8 cards', () => {
+describe('python position check', () => {
   let louis_found = false;
 
   beforeEach(() => {
@@ -20,7 +20,7 @@ describe('python - my post should appears in the first 8 cards', () => {
     expect(louis_found).to.be.true;
   });
 
-  it('Visits https://www.carousell.com.hk', () => {
+  it('my post should appears in the first 8 cards', () => {
     cy.viewport(1920, 1080 * 5);
 
     // 3D 代客打印
