@@ -8,7 +8,7 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 var ENV_KEYWORD_LIST = Cypress.env("ENV_KEYWORD_LIST");
 var ENV_USER_LIST = Cypress.env("ENV_USER_LIST");
 
-describe(`checking ${'active_keyword'}->${'active_user'}`, () => {
+describe(`carousell-bump-exercise.cy.js`, () => {
   it("carousell-bump-exercise.cy.js", () => {
     cy.on('uncaught:exception', (err, runnable) => {
         return false
