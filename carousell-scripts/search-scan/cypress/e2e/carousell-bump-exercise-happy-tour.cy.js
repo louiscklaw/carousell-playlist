@@ -7,8 +7,8 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 });
 
 
-var ENV_KEYWORD_LIST = Cypress.env("ENV_KEYWORD_LIST") || "programming";
-var ENV_USER_LIST = Cypress.env("ENV_USER_LIST") || "abcdqwr";
+var ENV_KEYWORD_LIST =  "programming";
+var ENV_USER_LIST = "abcdqwr";
 
 var USER_LIST = ENV_USER_LIST.split(",");
 var KEYWORD_LIST = ENV_KEYWORD_LIST.split(",");
