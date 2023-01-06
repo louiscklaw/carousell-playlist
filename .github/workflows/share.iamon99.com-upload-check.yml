@@ -1,0 +1,48 @@
+name: share.iamon99.com-upload-check
+
+on:
+  push:
+  schedule:
+    - cron: "15 * * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: carousell-search-scan
+        continue-on-error: true
+        timeout-minutes: 120
+        env: # Or as an environment variable
+          ENV_KEYWORD_LIST: ${{ secrets.ENV_KEYWORD_LIST }}
+          ENV_USER_LIST: ${{ secrets.ENV_USER_LIST }}
+        run: |
+          cd carousell-scripts/share.iamon99.com-upload-check
+            npm i -d
+            id
+            docker run -t \
+              --env-file <(env | grep ENV_) \
+              -v $PWD:/e2e \
+              -w /e2e cypress/included:10.6.0 run \
+              --env ENV_USER_LIST="$ENV_USER_LIST",ENV_KEYWORD_LIST="$ENV_KEYWORD_LIST" \
+              --headed --browser chrome
+          cd ..
+
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   # If you're changing the branch from main,
+      #   # also change the `main` in `refs/heads/main`
+      #   # below accordingly.
+      #   # if: ${{ github.ref == 'refs/heads/main' }}
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: carousell-scripts/search-scan/cypress/reports/html
+
+      - uses: actions/upload-artifact@v2 # upload test results
+        if: failure()
+        with:
+          name: failure-troubleshoot
+          path: |
+            carousell-scripts/search-scan/cypress/screenshots
+            carousell-scripts/search-scan/cypress/videos
