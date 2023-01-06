@@ -16,7 +16,7 @@ describe('https://louiscklaw.github.io self-check', { retries: { runMode: 3, ope
 
   // afterEach(() => {});
 
-  it(`https://louiscklaw.github.io self check`, () => {
+  it(`https://louiscklaw.github.io/carousell self check`, () => {
     cy.visit('https://louiscklaw.github.io/carousell');
 
     cy.viewport(1920, 1080);

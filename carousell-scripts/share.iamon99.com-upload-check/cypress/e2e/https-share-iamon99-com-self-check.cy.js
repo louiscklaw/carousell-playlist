@@ -1,5 +1,3 @@
-import { onlyOn, skipOn } from '@cypress/skip-test';
-
 Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
@@ -25,34 +23,14 @@ describe('upload self check', { retries: { runMode: 3, openMode: 1 } }, () => {
 
     cy.screenshot({ capture: 'viewport', overwrite: true });
 
-    cy.xpath(`/html/body/div/div[1]/div/div[1]`).then($ele => {
+    cy.xpath(`//*[@id="swal2-title"]`).then($ele => {
       cy.debug($ele.text());
-      var result = $ele.text().search(/file upload/);
+      var result = $ele.text().search(/HOW TO USE/);
       expect(result > -1).to.be.true;
     });
 
-    cy.xpath(`/html/body/div/div[2]`).then($ele => {
-      cy.debug($ele.text());
-      var result = $ele.text().search(/2022 louis portfolio/);
-      expect(result > -1).to.be.true;
-    });
+    cy.xpath(`/html/body/div[2]/div/div[6]`).click();
 
-    cy.xpath(`/html/body/div/div[1]/div/form/div[1]/label`).then($ele => {
-      cy.debug($ele.text());
-      var result = $ele.text().search(/Choose/);
-      expect(result > -1).to.be.true;
-    });
-
-    cy.xpath(`//*[@id="btn-back"]`).then($ele => {
-      cy.debug($ele.text());
-      var result = $ele.text().search(/back/);
-      expect(result > -1).to.be.true;
-    });
-
-    cy.xpath(`//*[@id="btn-upload"]`).then($ele => {
-      cy.debug($ele.text());
-      var result = $ele.text().search(/upload/);
-      expect(result > -1).to.be.true;
-    });
+    cy.get(`#container_title_text`);
   });
 });
