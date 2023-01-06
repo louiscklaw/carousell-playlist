@@ -9,7 +9,7 @@ var ENV_KEYWORD_LIST = Cypress.env("ENV_KEYWORD_LIST");
 var ENV_USER_LIST = Cypress.env("ENV_USER_LIST");
 
 function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * max)+1;
 }
 
 describe(`carousell-bump-exercise.cy.js`, () => {
