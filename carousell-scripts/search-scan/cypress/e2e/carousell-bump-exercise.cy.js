@@ -15,7 +15,17 @@ describe(`carousell-bump-exercise.cy.js`, () => {
     })
     var USER_LIST = ENV_USER_LIST.split("++++");
     var KEYWORD_LIST = ENV_KEYWORD_LIST.split("++++");
-    
+
+    let shuffled_KEYWORD_LIST = KEYWORD_LIST
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
+   
+    let shuffled_USER_LIST = USER_LIST
+      .map(value => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value)
+
     cy.readFile('ad_list.json',{encoding: 'utf-8'}).then(str => {
         str.forEach( s => cy.intercept(`https://*.${s}/*`, {}))
     })
@@ -30,8 +40,8 @@ describe(`carousell-bump-exercise.cy.js`, () => {
     cy.intercept("https://*.admeme.net/*", {});
     cy.intercept("https://*.rlcdn.com/*", {});
 
-    KEYWORD_LIST.forEach(kw => {
-      USER_LIST.forEach(active_user => {
+    shuffled_KEYWORD_LIST.forEach(kw => {
+      shuffled_USER_LIST.forEach(active_user => {
         cy.log({kw, active_user})
         cy.clearLocalStorage();
         cy.clearCookies();
