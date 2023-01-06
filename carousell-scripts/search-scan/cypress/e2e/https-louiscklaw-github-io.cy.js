@@ -14,8 +14,6 @@ describe('https://louiscklaw.github.io self-check', { retries: { runMode: 3, ope
     cy.clearCookies();
 
     cy.intercept('https://sentry.io/*', {});
-
-    cy.wait(1000);
   });
 
   // afterEach(() => {});

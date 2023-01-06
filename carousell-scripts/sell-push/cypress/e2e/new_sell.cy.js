@@ -24,14 +24,13 @@ describe('login carousell', () => {
     cy.xpath('(.//input)[1]').selectFile('cypress\\e2e\\test_photo.png', {
       force: true,
     });
-    cy.wait(1000);
+
     // cy.get(".D_xP").click();
 
     cy.get('p').contains('Select a category').click();
     // cy.get(".D_rS").type("Printers, Scanners & Copiers");
     cy.xpath('(.//input[@placeholder="Search for a category..."])[1]').type('Printers, Scanners & Copiers');
 
-    cy.wait(1000);
     cy.get('.D_yb').click();
     cy.get(':nth-child(1) > .D_yj > .D_rR > .D_rS').type('3d printout selling');
     cy.get(':nth-child(2) > .D_zP > .D_zR > :nth-child(1)').click();
@@ -50,7 +49,7 @@ describe('login carousell', () => {
 
     // click meet up
     cy.get('p').contains('Meet-up').click();
-    cy.wait(1000);
+
     // click add location
     cy.get('span').contains('Add location').click({ force: true });
 

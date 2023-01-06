@@ -12,7 +12,6 @@ describe('python - my post should appears in the first 8 cards', () => {
   beforeEach(() => {
     cy.clearLocalStorage();
     cy.clearCookies();
-    cy.wait(1000);
 
     cy.intercept('https://sentry.io/*', {});
   });

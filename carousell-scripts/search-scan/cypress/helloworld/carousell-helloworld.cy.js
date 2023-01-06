@@ -12,8 +12,6 @@ describe('test xpath', { retries: { runMode: 3, openMode: 1 } }, () => {
     cy.clearCookies();
 
     cy.intercept('https://sentry.io/*', {});
-
-    cy.wait(1000);
   });
 
   // afterEach(() => {});

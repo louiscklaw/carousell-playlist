@@ -48,7 +48,6 @@ Cypress._.times(KEYWORD_LIST.length, () => {
           cy.intercept('https://*.rlcdn.com/*', {});
 
           cy.viewport(1920, 1200);
-          cy.wait(1000);
         });
 
         it('carousell-bump-exercise-happy-tour.cy.js', () => {
@@ -65,7 +64,6 @@ Cypress._.times(KEYWORD_LIST.length, () => {
             .parent()
             .parent()
             .click();
-          cy.wait(3 * 1000);
         });
       });
     });

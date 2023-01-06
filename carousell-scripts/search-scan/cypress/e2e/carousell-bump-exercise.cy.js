@@ -66,10 +66,8 @@ describe(`carousell-bump-exercise.cy.js`, () => {
               .parent()
               .parent()
               .click();
-            cy.wait(3 * 1000);
           } else {
             cy.log(`cannot find the user -> ${active_user}`);
-            cy.wait(1000);
           }
         });
       });
