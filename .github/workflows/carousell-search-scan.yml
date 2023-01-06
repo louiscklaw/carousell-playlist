@@ -40,7 +40,7 @@ jobs:
           publish_dir: carousell-scripts/search-scan/cypress/reports/html
 
       - uses: actions/upload-artifact@v2 # upload test results
-        if: failure()
+        if: failure() || success()
         with:
           name: failure-troubleshoot
           path: |
