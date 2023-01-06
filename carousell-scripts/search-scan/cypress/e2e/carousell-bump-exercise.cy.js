@@ -54,6 +54,8 @@ describe(`carousell-bump-exercise.cy.js`, () => {
           cy.clearLocalStorage();
           cy.clearCookies();
 
+          cy.viewport(1920, 1080 * 10);
+
           // cy.visit(`https://www.example.com/`);
           // cy.visit(`http://192.168.10.180:5500/carousell-scripts/search-scan/site/index.html`);
 
