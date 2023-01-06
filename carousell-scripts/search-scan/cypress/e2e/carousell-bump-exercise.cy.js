@@ -58,9 +58,9 @@ describe(`carousell-bump-exercise.cy.js`, () => {
           cy.clearCookies();
           
           // cy.visit(`https://www.example.com/`);
-          cy.visit(`http://192.168.10.180:5500/carousell-scripts/search-scan/site/index.html`);
+          // cy.visit(`http://192.168.10.180:5500/carousell-scripts/search-scan/site/index.html`);
 
-          // cy.visit(`https://www.carousell.com.hk/search/${kw}`);
+          cy.visit(`https://www.carousell.com.hk/search/${kw}`);
           if (Cypress.$('[data-testid="listing-card-text-seller-name"]').length > 0) {
             cy.get('[data-testid="listing-card-text-seller-name"]')
               .find(`:contains("${active_user}")`)
