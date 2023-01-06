@@ -3,7 +3,7 @@ name: carousell-search-scan
 on:
   push:
   schedule:
-    - cron:  '15 * * * *'
+    - cron: "15 * * * *"
 
 jobs:
   build:
@@ -19,7 +19,12 @@ jobs:
           cd carousell-scripts/search-scan
             npm i -d
             id
-            docker run -t --env-file <(env | grep ENV_) -v $PWD:/e2e -w /e2e cypress/included:10.6.0 --headed --browser chrome
+            docker run -t \
+              --env-file <(env | grep ENV_) \
+              -v $PWD:/e2e \
+              -w /e2e cypress/included:10.6.0 run \
+              --env ENV_USER_LIST="$CYPRESS_USER_LIST",ENV_KEYWORD_LIST="$CYPRESS_ENV_KEYWORD_LIST" \
+              --headed --browser chrome
             sudo chmod 777 -R cypress/reports
             node ./publish.js
           cd ..
@@ -33,7 +38,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: carousell-scripts/search-scan/cypress/reports/html
-          
+
       - uses: actions/upload-artifact@v2 # upload test results
         if: failure()
         with:
