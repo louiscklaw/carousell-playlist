@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: carousell-scan
+      - name: carousell-search-scan
         continue-on-error: true
         timeout-minutes: 120
         env: # Or as an environment variable

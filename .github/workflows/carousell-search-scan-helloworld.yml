@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: carousell-scan
+      - name: carousell-search-scan-helloworld
         continue-on-error: true
         timeout-minutes: 120
         env: # Or as an environment variable
@@ -29,20 +29,20 @@ jobs:
               --headed --browser chrome
           cd ..
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        # If you're changing the branch from main,
-        # also change the `main` in `refs/heads/main`
-        # below accordingly.
-        # if: ${{ github.ref == 'refs/heads/main' }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: carousell-scripts/search-scan/cypress/reports/html
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   # If you're changing the branch from main,
+      #   # also change the `main` in `refs/heads/main`
+      #   # below accordingly.
+      #   # if: ${{ github.ref == 'refs/heads/main' }}
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: carousell-scripts/search-scan/cypress/reports/html
 
-      - uses: actions/upload-artifact@v2 # upload test results
-        if: failure() || success()
-        with:
-          name: failure-troubleshoot
-          path: |
-            carousell-scripts/search-scan/cypress/screenshots
-            carousell-scripts/search-scan/cypress/videos
+      # - uses: actions/upload-artifact@v2 # upload test results
+      #   if: failure() || success()
+      #   with:
+      #     name: failure-troubleshoot
+      #     path: |
+      #       carousell-scripts/search-scan/cypress/screenshots
+      #       carousell-scripts/search-scan/cypress/videos
