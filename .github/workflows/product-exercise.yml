@@ -35,10 +35,10 @@ jobs:
       #     keep_files: true
       #     publish_dir: carousell-scripts/search-scan/cypress/reports/html
 
-      # - uses: actions/upload-artifact@v2 # upload test results
-      #   if: failure() || success()
-      #   with:
-      #     name: failure-troubleshoot
-      #     path: |
-      #       carousell-scripts/search-scan/cypress/screenshots
-      #       carousell-scripts/search-scan/cypress/videos
+      - uses: actions/upload-artifact@v2 # upload test results
+        if: failure() || success()
+        with:
+          name: failure-troubleshoot
+          path: |
+            carousell-scripts/product-exercise/app/screenshots
+            carousell-scripts/product-exercise/app/videos
