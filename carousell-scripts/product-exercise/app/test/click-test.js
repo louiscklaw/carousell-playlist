@@ -42,14 +42,15 @@ describe('click test', function () {
       let user = USER_LIST[u_i];
       let keyword = KEYWORD_LIST[k_i];
 
+      let i = 0;
       for (var c_i = 0; c_i < num_of_click; c_i++) {
         it(`helloworld ${keyword} -> ${user} -> ${c_i}`, async function () {
           this.timeout(180 * 1000);
-          const filename = `${keyword}-${user}-${c_i}`;
+          const filename = `${keyword}-${user}-${i}`;
           const video_file = `${video_path}/${filename}.mp4`;
           const screenshot_file = `${screenshot_path}/${filename}.jpg`;
           const mochawesome_report_path = 'mochawesome-report';
-          console.log({ keyword, user, c_i, video_file, screenshot_file, mochawesome_report_path });
+          console.log({ keyword, user, i, video_file, screenshot_file, mochawesome_report_path });
 
           async function readAdList() {
             console.log('loading ad blocker host');
