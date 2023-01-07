@@ -7,9 +7,11 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 var ENV_KEYWORD_LIST = Cypress.env('ENV_KEYWORD_LIST');
 var ENV_USER_LIST = Cypress.env('ENV_USER_LIST');
+var ENV_MIN_CLICK = Cypress.env('ENV_MIN_CLICK');
+var ENV_MAX_CLICK = Cypress.env('ENV_MAX_CLICK');
 
 function getRandomInt(max) {
-  return Math.floor(Math.random() * max) + 1;
+  return Math.floor(Math.random() * max);
 }
 
 describe(`carousell-bump-exercise.cy.js`, () => {
@@ -18,7 +20,7 @@ describe(`carousell-bump-exercise.cy.js`, () => {
       return false;
     });
 
-    var time_to_click = getRandomInt(5);
+    var time_to_click = getRandomInt(parseInt(ENV_MAX_CLICK)) + parseInt(ENV_MIN_CLICK);
 
     var USER_LIST = ENV_USER_LIST.split('++++');
     var KEYWORD_LIST = ENV_KEYWORD_LIST.split('++++');
