@@ -4,6 +4,8 @@ const Diff = require('diff');
 
 const config = require('./config');
 
+const { ENV_KEYWORD_LIST, ENV_USER_LIST, ENV_MIN_CLICK, ENV_MAX_CLICK } = process.env;
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -56,13 +58,13 @@ function getRandomInt(max) {
     await page.setDefaultNavigationTimeout(5 * 1000);
 
     // http://127.0.0.1:5500/app/site/index.html
-    // await page.goto(`http://192.168.10.180:5500/app/site/index.html`, {
-    //   waitUntil: ['load', 'networkidle0', 'networkidle2'],
-    // });
-
-    await page.goto(`https://www.carousell.com.hk/search/${keyword}`, {
+    await page.goto(`http://192.168.10.180:5500/app/site/index.html`, {
       waitUntil: ['load', 'networkidle0', 'networkidle2'],
     });
+
+    // await page.goto(`https://www.carousell.com.hk/search/${keyword}`, {
+    //   waitUntil: ['load', 'networkidle0', 'networkidle2'],
+    // });
 
     const [p_target_user] = await page.$x(`//p[contains(., '${user}')]`);
     if (p_target_user) {
@@ -82,8 +84,18 @@ function getRandomInt(max) {
     console.log('done');
   };
 
-  for (var i = 0; i < 3; i++) {
-    await browserPage({ keyword: 'Jeton', user: 'louiscklaw', run: i });
+  let KEYWORD_LIST = ENV_KEYWORD_LIST.split(',');
+  let USER_LIST = ENV_USER_LIST.split(',');
+  for (var k_i = 0; k_i < KEYWORD_LIST.length; k_i++) {
+    for (var u_i = 0; u_i < USER_LIST.length; u_i++) {
+      let num_of_click = getRandomInt(parseInt(ENV_MAX_CLICK)) + parseInt(ENV_MIN_CLICK);
+
+      let user = USER_LIST[u_i];
+      let keyword = KEYWORD_LIST[k_i];
+      for (var i = 0; i < num_of_click; i++) {
+        await browserPage({ keyword, user, run: i });
+      }
+    }
   }
 })();
 
