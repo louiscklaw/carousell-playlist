@@ -7,8 +7,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 var ENV_KEYWORD_LIST = Cypress.env('ENV_KEYWORD_LIST');
 var ENV_USER_LIST = Cypress.env('ENV_USER_LIST');
-var ENV_MIN_CLICK = Cypress.env('ENV_MIN_CLICK');
-var ENV_MAX_CLICK = Cypress.env('ENV_MAX_CLICK');
+var ENV_MIN_CLICK = Cypress.env('ENV_MIN_CLICK') || 1;
+var ENV_MAX_CLICK = Cypress.env('ENV_MAX_CLICK') || 10;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);

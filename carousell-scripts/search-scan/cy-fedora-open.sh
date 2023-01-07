@@ -12,6 +12,8 @@ xhost local:
 
 export CYPRESS_USER_LIST=louiscklaw++++louiscklaw
 export CYPRESS_ENV_KEYWORD_LIST=jeton++++jeton
+export ENV_MIN_CLICK=1
+export ENV_MAX_CLICK=3
 
 # explanation of the "docker run" command line arguments
 #
@@ -33,5 +35,5 @@ docker run -it \
   --env-file <(env | grep ENV_) \
   --entrypoint cypress \
   cypress/included:10.6.0 open  \
-  --env ENV_USER_LIST="$CYPRESS_USER_LIST",ENV_KEYWORD_LIST="$CYPRESS_ENV_KEYWORD_LIST" \
+  --env ENV_USER_LIST="$CYPRESS_USER_LIST",ENV_KEYWORD_LIST="$CYPRESS_ENV_KEYWORD_LIST",ENV_MIN_CLICK="$ENV_MIN_CLICK",ENV_MAX_CLICK="$ENV_MAX_CLICK" \
   --project .
