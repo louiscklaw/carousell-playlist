@@ -2,4 +2,6 @@
 
 set -ex
 
+npm i -d
+
 node ./test.js
