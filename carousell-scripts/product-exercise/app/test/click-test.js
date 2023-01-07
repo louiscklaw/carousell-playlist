@@ -2,8 +2,30 @@ const fs = require('fs');
 const puppeteer = require('puppeteer-core');
 const { expect } = require('chai');
 const _ = require('lodash');
+const { PuppeteerScreenRecorder } = require('puppeteer-screen-recorder');
+
+const video_path = 'videos';
+const screenshot_path = 'screenshots';
 
 const { ENV_KEYWORD_LIST, ENV_USER_LIST, ENV_MIN_CLICK, ENV_MAX_CLICK } = process.env;
+
+const Config = {
+  followNewTab: true,
+  videoFrame: {
+    width: 1024,
+    height: 768,
+  },
+  fps: 25,
+  videoCrf: 18,
+  // ffmpeg_Path: '<path of ffmpeg_path>' || null,
+  // videoCodec: 'libx264',
+  // videoPreset: 'ultrafast',
+  // videoBitrate: 1000,
+  // autopad: {
+  //   color: 'black' | '#35A5FF',
+  // },
+  // aspectRatio: '4:3',
+};
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -23,7 +45,11 @@ describe('click test', function () {
       for (var c_i = 0; c_i < num_of_click; c_i++) {
         it(`helloworld ${keyword} -> ${user} -> ${c_i}`, async function () {
           this.timeout(180 * 1000);
-          console.log({ keyword, user, c_i });
+          const filename = `${keyword}-${user}-${c_i}`;
+          const video_file = `${video_path}/${filename}.mp4`;
+          const screenshot_file = `${screenshot_path}/${filename}.jpg`;
+          const mochawesome_report_path = 'mochawesome-report';
+          console.log({ keyword, user, c_i, video_file, screenshot_file, mochawesome_report_path });
 
           async function readAdList() {
             console.log('loading ad blocker host');
@@ -41,7 +67,11 @@ describe('click test', function () {
 
           page = await browser.newPage();
 
+          const recorder = new PuppeteerScreenRecorder(page);
           await page.setViewport({ width: 1920, height: 1080 });
+
+          await recorder.start(`${video_file}`, Config);
+
           // await page.setDefaultNavigationTimeout(0);
 
           page.on('request', request => {
@@ -86,7 +116,9 @@ describe('click test', function () {
             await page.waitForTimeout(1 * 1000);
           }
 
-          await page.screenshot({ path: `screenshots/${keyword}-${user}-${c_i}.jpg` });
+          await page.screenshot({ path: `${screenshot_file}` });
+
+          await recorder.stop();
 
           await page.close();
           await browser.close();
