@@ -20,10 +20,9 @@ describe('click test', function () {
       let user = USER_LIST[u_i];
       let keyword = KEYWORD_LIST[k_i];
 
-      for (var c_i = 0; c_i < num_of_click; c_i++) {
-        it(`helloworld ${keyword} -> ${user} -> ${c_i}`, async function () {
+      for (var i = 0; i < num_of_click; i++) {
+        it(`helloworld ${keyword} -> ${user} -> ${i}`, async function () {
           this.timeout(180 * 1000);
-          console.log({ keyword, user, c_i });
 
           async function readAdList() {
             console.log('loading ad blocker host');
@@ -40,9 +39,6 @@ describe('click test', function () {
           let ad_list_json = await readAdList();
 
           page = await browser.newPage();
-
-          await page.setViewport({ width: 1920, height: 1080 });
-          // await page.setDefaultNavigationTimeout(0);
 
           page.on('request', request => {
             let incoming_url = request.url();
@@ -63,30 +59,28 @@ describe('click test', function () {
             }
           });
 
-          // await page.goto(`http://192.168.10.180:5500/app/site/index.html`, {
+          await page.goto(`http://192.168.10.180:5500/app/site/index.html`, {
+            waitUntil: ['load', 'networkidle0', 'networkidle2'],
+          });
+          const [p_target_user] = await page.$x(`//p[contains(., '345')]`);
+
+          // await page.goto(`https://www.carousell.com.hk/search/${keyword}`, {
           //   waitUntil: ['load', 'networkidle0', 'networkidle2'],
           // });
-          // const [p_target_user] = await page.$x(`//p[contains(., '345')]`);
 
-          await page.goto(`https://www.carousell.com.hk/search/${keyword}`, {
-            waitUntil: ['networkidle0'],
-          });
+          // const [p_target_user] = await page.$x(`//p[contains(., '${user}')]`);
+          // if (p_target_user) {
+          //   const parent_node_1 = await p_target_user.getProperty('parentNode');
+          //   const parent_node_2 = await parent_node_1.getProperty('parentNode');
+          //   const parent_node_3 = await parent_node_2.getProperty('parentNode');
+          //   await parent_node_3.click();
 
-          const [p_target_user] = await page.$x(`//p[contains(., '${user}')]`);
-          if (p_target_user) {
-            const parent_node_1 = await p_target_user.getProperty('parentNode');
-            const parent_node_2 = await parent_node_1.getProperty('parentNode');
-            const parent_node_3 = await parent_node_2.getProperty('parentNode');
-            await parent_node_3.click();
-
-            console.log('target user clicked, cool down');
-            await page.waitForTimeout(5 * 1000);
-          } else {
-            console.log('cannot find target user, wait');
-            await page.waitForTimeout(1 * 1000);
-          }
-
-          await page.screenshot({ path: `screenshots/${keyword}-${user}-${c_i}.jpg` });
+          //   console.log('target user clicked, cool down');
+          //   await page.waitForTimeout(5 * 1000);
+          // } else {
+          //   console.log('cannot find target user, wait');
+          //   await page.waitForTimeout(1 * 1000);
+          // }
 
           await page.close();
           await browser.close();

@@ -17,6 +17,7 @@ services:
       ENV_USER_LIST: ${ENV_USER_LIST}
       ENV_MIN_CLICK: ${ENV_MIN_CLICK}
       ENV_MAX_CLICK: ${ENV_MAX_CLICK}
+      ENABLE_CORS: true
     ports:
       - 8081:8080
     command: 'sleep infinity'
