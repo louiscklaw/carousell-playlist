@@ -27,11 +27,11 @@ describe(`carousell-bump-exercise.cy.js`, () => {
 
     let shuffled_KEYWORD_LIST = KEYWORD_LIST.map(value => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value);
+      .map(({ value }) => value.strip());
 
     let shuffled_USER_LIST = USER_LIST.map(value => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value);
+      .map(({ value }) => value.strip());
 
     cy.debug({ config: { time_to_click } });
     cy.debug({ config: { ENV_KEYWORD_LIST } });
