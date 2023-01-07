@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://cdn.tercept.com/js/trcpt?account_id=TCPT-1565"></script>
+  </head>
+  <body>
+    <div id="apple">apple</div>
+
+    <a>
+      <div>
+        <div data-testid="listing-card-text-seller-name"> aaa123 </div>
+      </div>
+
+      <div>
+        <div data-testid="listing-card-text-seller-name"> bbb234 </div>
+      </div>
+
+      <div>
+        <div data-testid="listing-card-text-seller-name">
+          <div id="test-button">
+            <p>ccc345</p>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    test /home/logic/_workspace/carousell-playlist/carousell-scripts/search-scan/site/index.html
+  </body>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('#test-button').addEventListener('click', () => {
+        console.log('helloworld');
+      });
+    });
+  </script>
+</html>

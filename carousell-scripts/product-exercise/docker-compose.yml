@@ -1,0 +1,34 @@
+# https://doc.traefik.io/traefik/user-guides/docker-compose/acme-tls/
+
+services:
+  backend:
+    # container_name: 'backend'
+    # hostname: backend
+    # image: 'node:16'
+    build:
+      context: .
+    user: 'node'
+    volumes:
+      - ./app:/usr/src/app
+    working_dir: /usr/src/app
+    environment:
+      HELLO: 'WORLD'
+    ports:
+      - 8081:8080
+    command: 'sleep infinity'
+
+  browserless_engine:
+    # container_name: 'browserless_engine'
+    # hostname: browserless_engine
+    image: 'browserless/chrome'
+    # volumes:
+    # - ./app:/usr/src/app
+    # working_dir: /usr/src/app
+    environment:
+      CONNECTION_TIMEOUT: '15000'
+      DEFAULT_IGNORE_HTTPS_ERRORS: 'true'
+      MAX_CONCURRENT_SESSIONS: '5'
+      MAX_QUEUE_LENGTH: '999'
+      FUNCTION_ENABLE_INCOGNITO_MODE: 'true'
+    ports:
+      - 3000:3000
