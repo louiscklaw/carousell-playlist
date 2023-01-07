@@ -3,7 +3,7 @@ name: share.iamon99.com-upload-check
 on:
   push:
   schedule:
-    - cron: "15 * * * *"
+    - cron: '15 * * * *'
   workflow_dispatch:
 
 jobs:
