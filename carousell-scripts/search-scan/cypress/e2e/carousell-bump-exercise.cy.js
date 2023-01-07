@@ -34,6 +34,10 @@ describe(`carousell-bump-exercise.cy.js`, () => {
       .map(({ value }) => value);
 
     cy.debug({ config: { time_to_click } });
+    cy.debug({ config: { ENV_KEYWORD_LIST } });
+    cy.debug({ config: { ENV_USER_LIST } });
+    cy.debug({ config: { ENV_MIN_CLICK } });
+    cy.debug({ config: { ENV_MAX_CLICK } });
 
     cy.readFile('ad_list.json', { encoding: 'utf-8' }).then(str => {
       str.forEach(s => cy.intercept(`https://*.${s}/*`, {}));
