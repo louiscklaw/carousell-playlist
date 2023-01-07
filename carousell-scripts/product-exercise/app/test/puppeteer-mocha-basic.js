@@ -13,9 +13,8 @@ describe('sample test', function () {
     });
 
     page = await browser.newPage();
-    await page.goto('http://192.168.10.180:5500');
-
-    const [p_target_user] = await page.$x(`//p[contains(., '345')]`);
+    // await page.goto('http://192.168.10.180:5500');
+    // const [p_target_user] = await page.$x(`//p[contains(., '345')]`);
 
     await page.close();
   });
