@@ -3,7 +3,7 @@ name: carousell-search-scan-helloworld
 on:
   push:
   schedule:
-    - cron: '*/30 10-22 * * *'
+    - cron: '15 10-22 * * *'
   workflow_dispatch:
 
 jobs:
