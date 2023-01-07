@@ -3,7 +3,7 @@ name: carousell-search-scan
 on:
   push:
   schedule:
-    - cron: '15 10-22 * * *'
+    - cron: '20 9-23 * * *'
   workflow_dispatch:
 
 jobs:
@@ -45,7 +45,7 @@ jobs:
           publish_dir: carousell-scripts/search-scan/cypress/reports/html
 
       - uses: actions/upload-artifact@v2 # upload test results
-        if: failure()
+        if: failure() || success()
         with:
           name: failure-troubleshoot
           path: |
