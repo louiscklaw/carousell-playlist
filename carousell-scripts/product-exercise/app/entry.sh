@@ -4,4 +4,6 @@ set -ex
 
 npm i -d
 
-node ./test.js
+# node ./test.js
+
+npm run test

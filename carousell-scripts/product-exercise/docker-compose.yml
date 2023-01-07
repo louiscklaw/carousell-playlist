@@ -7,7 +7,7 @@ services:
     # image: 'node:16'
     build:
       context: .
-    # user: 'node'
+    user: 'node'
     volumes:
       - ./app:/usr/src/app
     working_dir: /usr/src/app
