@@ -115,14 +115,14 @@ describe('click test', function () {
 
             var spotlightFound = textContentValue.search('spotlight') > 0 || textContentValue.search('熱門推廣') > 0;
 
-            if (spotlightFound) {
-              const parent_node_1 = await p_target_user.getProperty('parentNode');
-              const parent_node_2 = await parent_node_1.getProperty('parentNode');
-              const parent_node_3 = await parent_node_2.getProperty('parentNode');
-              await parent_node_3.click();
+            const parent_node_1 = await p_target_user.getProperty('parentNode');
+            const parent_node_2 = await parent_node_1.getProperty('parentNode');
+            const parent_node_3 = await parent_node_2.getProperty('parentNode');
+            await parent_node_3.click();
+            await page.waitForTimeout(5 * 1000);
 
+            if (spotlightFound) {
               console.log('target user clicked, cool down');
-              await page.waitForTimeout(5 * 1000);
             } else {
               console.log('user not using spotlight');
             }
