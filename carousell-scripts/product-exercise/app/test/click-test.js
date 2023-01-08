@@ -119,6 +119,8 @@ describe('click test', function () {
             const parent_node_2 = await parent_node_1.getProperty('parentNode');
             const parent_node_3 = await parent_node_2.getProperty('parentNode');
             await parent_node_3.click();
+
+            console.log('user clicked, cold down')
             await page.waitForTimeout(5 * 1000);
 
             if (spotlightFound) {
