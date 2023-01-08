@@ -36,7 +36,7 @@ jobs:
           publish_dir: carousell-scripts/product-exercise/app/mochawesome-report
 
       - uses: actions/upload-artifact@v2 # upload test results
-        if: failure() || success()
+        if: failure()
         with:
           name: failure-troubleshoot
           path: |
