@@ -8,9 +8,10 @@ services:
     # image: 'node:16'
     build:
       context: .
-    user: 'node'
+    # user: 'node'
     volumes:
       - ./app:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
     working_dir: /usr/src/app
     environment:
       HELLO: 'WORLD'
@@ -38,3 +39,6 @@ services:
       FUNCTION_ENABLE_INCOGNITO_MODE: 'true'
     ports:
       - 3000:3000
+
+volumes:
+  node_modules:
