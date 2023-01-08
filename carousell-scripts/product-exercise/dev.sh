@@ -7,8 +7,12 @@ export ENV_USER_LIST=louiscklaw
 export ENV_MIN_CLICK=1
 export ENV_MAX_CLICK=3
 
-docker compose up -d --build
+docker compose \
+  -f docker-compose.dev.yml \
+  up -d --build
 
-docker compose exec -t \
+docker compose \
+  -f docker-compose.dev.yml \
+  exec -t \
   backend \
   bash
