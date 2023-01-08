@@ -102,7 +102,7 @@ describe('click test', function () {
           // const textContentValue = textContent._remoteObject.value;
           // console.log(textContentValue);
 
-          await page.goto(`https://www.carousell.com.hk/search/${keyword}`, {
+          await page.goto(`https://www.carousell.com.hk/search/${keyword}?price_end=99`, {
             waitUntil: ['networkidle0'],
           });
 
